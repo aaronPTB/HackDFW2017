@@ -11,7 +11,7 @@ window.onload = () => {
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
         <IndexRoute component={Home}/>
-        <Route path="/login" component={Login}/>
+        <Route path="login" component={Login}/>
       </Route>
     </Router>,
     document.getElementById('main')

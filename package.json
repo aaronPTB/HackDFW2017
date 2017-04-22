@@ -21,6 +21,7 @@
     "passport-strategy": "^1.0.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.10",
+    "react-bootstrap-form": "^0.1.4-beta6",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
   },
