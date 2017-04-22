@@ -52,22 +52,22 @@ export default function(app) {
   app.post('/api/update', (req, res) => {
 
   })
-  app.post("/submit-new-food", (req, res) => {
-        
-  })
-  app.post("/get-food-list", (req, res) => {
+  app.post("/card/submit-new-food", (req, res) => {
 
   })
-  app.post("/delete-food", (req, res) => {
+  app.post("/card/get-food-list", (req, res) => {
+
+  })
+  app.post("/card/delete-food", (req, res) => {
 
   })  
-  app.post("/update-food", (req, res) => {
+  app.post("/card/update-food", (req, res) => {
 
   })
-  app.post("/interest-in-food", (req, res) => {
+  app.post("/card/interest-in-food", (req, res) => {
 
   })
-  app.post("/set-text-nbr", (req, res) => {
+  app.post("/card/set-text-nbr", (req, res) => {
 
   })
 }
