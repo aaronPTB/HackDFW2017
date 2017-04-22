@@ -1,7 +1,5 @@
 import React from 'react';
-import Topbar from './fixed/topbar'
-import Home from './pages/home/index'
-
+import TopBar from './fixed/topbar'
 
 //Going to be used with routes so it must be exported as a class
 export default class Main extends React.Component {
@@ -27,7 +25,7 @@ export default class Main extends React.Component {
   render() {
     var toShow = (
     <div>
-  	  {/*<TopBar/>*/}
+  	  <TopBar/>
       <div className="col-main">
         {this.props.children}
       </div>

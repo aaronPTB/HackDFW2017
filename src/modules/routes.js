@@ -7,7 +7,7 @@ import { user_json } from './reference/samples.js'
 
 export default function(app) {
   app.get('/login', (req, res) =>
-  req.user ? res.redirect("/") : sendReactContext(req,  res));
+  {console.log("ddd"); req.user ? res.redirect("/") : sendReactContext(req,  res)});
   
   app.get('*', (req, res) =>
 	req.user ? sendReactContext(req,  res) : res.redirect("/login"));

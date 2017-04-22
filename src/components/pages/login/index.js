@@ -9,8 +9,9 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        LOGE INN
+      <div className="page login">
+          <div id="login-field">
+          </div>
       </div>
     )
   }
