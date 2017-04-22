@@ -1,4 +1,5 @@
-#Installation
+# Installation
+
 To install the relevant packages to run this server, run:
 ``npm install``
 
@@ -7,20 +8,26 @@ This can be installed in debian systems by
 
 ``sudo apt-get install mongodb``
 
-#Running
+# Running
+
 To start the server, run
 ``npm start``
 
-##More info
-###Stack
+## More info
+
+### Stack
+
 - NodeJS
 - Express
 
-###Front end rendering
+### Front end rendering
+
 - React
 
-###Database
+### Database
+
 - MongoDB
 
-##Template engine for React server side rendering:
+## Template engine for React server side rendering:
+
 - ejs

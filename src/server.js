@@ -16,7 +16,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 //Use the static folder for static pages
 app.use(express.static(__dirname + "/static/css"));
-app.use(express.static(__dirname + "/static/fonts"));
 app.use(express.static(__dirname + "/static/js"));
 
 //Set up express session to be used with Passport.js

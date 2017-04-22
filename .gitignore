@@ -1,2 +1,4 @@
-./node_modules/*
-./src/static/js/bundle.js
+node_modules/
+src/static/js/bundle.js
+db/*
+yarn.lock

@@ -14,18 +14,42 @@ export default function(app) {
 
 	app.post('/login', (req, res, next) => {
   	passport.authenticate('local', (err, user, info) => {
-        if (err) { return next(err); }
-        if (!user) { return res.send({status: 'failure'}); }
+        if (err) return next(err);
+        if (!user) return res.send({status: 'failure'});
+        
         req.logIn(user, function(err) {
-        if (err) { return next(err); }
+        if (err) return next(err);
         return res.send({status: 'success'});
     });
     })(req, res, next);
   });
 
+  app.post("/auth/change-password", (req, res) => {
+    if (req.user) { change_password(req.user.username, req.body.password,
+    (data) => res.send({result: data}))};
+  })
+
+  app.post("/auth/add-user", (req, res) => {
+    if (req.body.username) {
+      request_make_user(req.body.username, req.body.password, output => res.send(output))
+    }
+  })
+
+  app.post("/auth/del-user", (req, res) => {
+    if (req.user.username == req.body.username) { res.send({status: "failure"})}
+    if (req.user && req.user.admin && req.body.username && req.body.user != req.user.username) {
+      request_delete_user(req.body.username, output => res.send(output))
+    }
+  })
+
+  app.post("/auth/reset-pass", (req, res) => {
+    if (req.user && req.user.admin && req.body.username) {
+      reset_password(req.body.username, output => res.send(output))
+    }
+  })
+
+  app.post("/check-admin", (req, res) => res.send(req.user ? req.user.admin : false))
+
   app.post('/api/update', (req, res) => {
-    if (req.body) { update_elevator(req.body, () => {
-      res.send()
-    })}
   })
 }
