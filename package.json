@@ -17,12 +17,10 @@
     "jquery": "^3.1.1",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.2",
-    "node-chartist": "^0.2.9",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-strategy": "^1.0.0",
     "react": "^15.3.2",
-    "react-chartist": "^0.11.0",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
   },
@@ -33,7 +31,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "jsx-loader": "^0.13.2",
-    "material-design-icons": "^3.0.1",
     "node-sass": "^4.1.1",
     "webpack": "^1.13.2"
   }
