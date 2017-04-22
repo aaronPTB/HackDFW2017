@@ -73,6 +73,4 @@ function reset_password(username, callback) {
 	})
 }
 
-export {update_db, update_elevator, get_messages, get_elevators,
-	 		  User, Message, Elevator, dump, change_password,
-				request_make_user, request_delete_user, reset_password};
+export {User, change_password, request_make_user, request_delete_user, reset_password};

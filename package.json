@@ -1,5 +1,5 @@
 {
-  "name": "elevator-project",
+  "name": "hackdfw",
   "version": "1.0.0",
   "scripts": {
     "db": "mongodb --dbpath=./db",

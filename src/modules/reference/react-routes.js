@@ -7,7 +7,6 @@ import Main from '../../components/main';
 var routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={Home}/>
     </Route>
   </Router>
 )

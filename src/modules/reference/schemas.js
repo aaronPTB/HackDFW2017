@@ -7,4 +7,4 @@ var UserSchema = new mongoose.Schema({
 })
 UserSchema.index({username: 'text'});
 
-export { ElevatorSchema, UserSchema };
+export { UserSchema };
