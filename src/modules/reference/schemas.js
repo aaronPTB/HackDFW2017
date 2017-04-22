@@ -14,7 +14,6 @@ var UserSchema = new mongoose.Schema({
 UserSchema.index({username: 'text'});		// Search username
 
 // A "Card" of an item being sold be an Account
-UserSchema.index({username: 'text'});
 var CardSchema = new mongoose.Schema({
 	item: String,							// Item name
 	cost: Number,							// Costs of the item
@@ -24,10 +23,9 @@ var CardSchema = new mongoose.Schema({
 	rating: Number,							// Current rating of item sold
 	tags: String,							// Searchable tags of item
 	description: String, 					// Text description of item
-	//picutre: String, 						// Picture of the item being sold
+	//picture: String, 						// Picture of the item being sold
 })
 // Search by item, seller, and tags of the item
-CardSchema.index({item: 'text', user: 'text', tags: 'text'})
-
+CardSchema.index({item: 'text', user: 'text'})
 
 export { UserSchema, CardSchema };
