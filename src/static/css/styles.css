@@ -5,8 +5,18 @@ body {
   height: 100px;
   width: 100%;
   position: absolute;
-  background-color: #4CAF50;
+  background-color: #1fa67a;
   box-shadow: 0px 0px 10px 0px #AAAAAA; }
+
+.topbar-section {
+  height: 100%;
+  width: 50%;
+  float: left;
+  display: flex;
+  align-items: center; }
+
+.topbar-section .right {
+  float: right; }
 
 .page {
   width: 100%;
@@ -21,3 +31,10 @@ body {
   max-height: 80%;
   max-width: 50%;
   background-color: #EEEEEE; }
+
+.fa.fa-user-circle.fa-5x.hover {
+  color: white;
+  transition: color .2s; }
+
+.fa.fa-user-circle.fa-5x.hover:hover {
+  color: #3F51B5; }

@@ -8,7 +8,7 @@ function httpdo(type, url, data, callback) {
             var json = JSON.parse(xhr.responseText);
             if (callback) {
                 console.log(xhr.status)
-                callback(Object.assign({}, json, {status: xhr.status}));
+                callback(Object.assign({}, json, {xhrstatus: xhr.status}));
             }
         }
     }

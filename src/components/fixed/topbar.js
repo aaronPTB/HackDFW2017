@@ -10,9 +10,10 @@ export default class TopBar extends React.Component {
   render() {
     return (
       <div id="topbar">
-        <div className='topbar left'>
+        <div className='topbar-section left'>
         </div>
-        <div className='topbar right'>
+        <div className='topbar-section right'>
+          <i className="fa fa-user-circle fa-5x hover" aria-hidden="true"></i>
         </div>
       </div>
     )
