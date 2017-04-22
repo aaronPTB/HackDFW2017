@@ -34,9 +34,8 @@ function change_password(user, password, callback) {
 	})
 }
 
-function request_make_user(username, callback) {
+function request_make_user(username, password, callback) {
 	User.findOne({username: username}, (err, response) => {
-		var password = gen_password();
 		if (response == null) {
 			(new User({username: username, password: password, admin:false})).save();
 			callback({status: "success", password: password});

@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import { Form, FormGroup, FormControl, Col, Checkbox, Button, ControlLabel } from 'react-bootstrap';
 import { post } from '../../../comm/comm'
 
@@ -6,14 +7,40 @@ import { post } from '../../../comm/comm'
 export default class Main extends React.Component {
   constructor() {
     super();
+    this.requestLogin = this.requestLogin.bind(this);
+    this.requestRegister = this.requestRegister.bind(this);
   }
 
   requestLogin() {
-    
+    const form = {
+      username: this.email.value,
+      password: this.password.value,
+    }
+    console.log(form);
+    post("/login", form, response => {
+      if (response.status == 'success') {
+        browserHistory.push("/");
+        console.log("success")
+      }
+      else {
+        console.log("failed to sign in");
+        console.log(response);
+      }
+    })
   }
 
   requestRegister() {
-
+    const form = {
+      username: this.email.value,
+      password: this.password.value,
+    }
+    post("/auth/add-user", form, response => {
+      if (response.status == 'success')
+        this.requestLogin();
+      else 
+        console.log("failed registration attempt")
+        console.log(response);
+    })
   }
 
   render() {
@@ -26,7 +53,7 @@ export default class Main extends React.Component {
                 Email
               </Col>
               <Col sm={10}>
-                <FormControl type="email" placeholder="Email" />
+                <FormControl type="email" placeholder="Email" inputRef={ref => { this.email = ref; }}/>
               </Col>
             </FormGroup>
 
@@ -35,16 +62,16 @@ export default class Main extends React.Component {
                 Password
               </Col>
               <Col sm={10}>
-                <FormControl type="password" placeholder="Password" />
+                <FormControl type="password" placeholder="Password" inputRef={ref => { this.password = ref; }}/>
               </Col>
             </FormGroup>
 
             <FormGroup>
               <Col smOffset={2} sm={10}>
-                <Button type="submit">
+                <Button onClick={this.requestLogin}>
                   Sign in
                 </Button>               
-                <Button type="submit">
+                <Button onClick={this.requestRegister}>
                   Register
                 </Button>
               </Col>

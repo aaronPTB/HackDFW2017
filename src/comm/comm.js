@@ -2,7 +2,6 @@ function httpdo(type, url, data, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open(type, url, true);
     xhr.setRequestHeader("Content-type", "application/json");
-    xhr.setRequestHeader("x-access-token", store.getState().token);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             console.log(xhr.responseText);
@@ -13,8 +12,8 @@ function httpdo(type, url, data, callback) {
             }
         }
     }
-    var data = JSON.stringify(data);
-    xhr.send(data);
+    console.log(data);
+    xhr.send(JSON.stringify(data));
 }
 
 export function get(url, callback) {

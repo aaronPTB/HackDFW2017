@@ -10,6 +10,10 @@ export default class TopBar extends React.Component {
   render() {
     return (
       <div id="topbar">
+        <div className='topbar left'>
+        </div>
+        <div className='topbar right'>
+        </div>
       </div>
     )
   }

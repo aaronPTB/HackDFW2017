@@ -31,7 +31,7 @@ export default function(app) {
 
   app.post("/auth/add-user", (req, res) => {
     if (req.body.username) {
-      request_make_user(req.body.username, output => res.send(output))
+      request_make_user(req.body.username, req.body.password, output => res.send(output))
     }
   })
 
