@@ -5,6 +5,7 @@ var UserSchema = new mongoose.Schema({
   password: String,
   admin: Boolean,
 })
+
 UserSchema.index({username: 'text'});
 
 export { UserSchema };

@@ -14,18 +14,16 @@ export default function(app) {
 
 	app.post('/login', (req, res, next) => {
   	passport.authenticate('local', (err, user, info) => {
-        if (err) { return next(err); }
-        if (!user) { return res.send({status: 'failure'}); }
+        if (err) return next(err);
+        if (!user) return res.send({status: 'failure'});
+        
         req.logIn(user, function(err) {
-        if (err) { return next(err); }
+        if (err) return next(err);
         return res.send({status: 'success'});
     });
     })(req, res, next);
   });
 
   app.post('/api/update', (req, res) => {
-    if (req.body) { update_elevator(req.body, () => {
-      res.send()
-    })}
   })
 }
