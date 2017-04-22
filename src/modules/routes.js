@@ -1,8 +1,7 @@
 import passport from 'passport';
 import sendReactContext from './react-render-context';
-import { update_elevator, update_db, get_messages, get_elevators, dump} from './db-functions';
 import { change_password, request_make_user, request_delete_user, reset_password} from './db-functions';
-import { User, Elevator, Message } from './db-functions';
+import { submit_new_food, get_food_list, delete_food, update_food, interest_in_food, set_text_nbr} from './db-functions';
 import { user_json } from './reference/samples.js'
 
 export default function(app) {
@@ -51,5 +50,24 @@ export default function(app) {
   app.post("/check-admin", (req, res) => res.send(req.user ? req.user.admin : false))
 
   app.post('/api/update', (req, res) => {
+
+  })
+  app.post("/submit-new-food", (req, res) => {
+        
+  })
+  app.post("/get-food-list", (req, res) => {
+
+  })
+  app.post("/delete-food", (req, res) => {
+
+  })  
+  app.post("/update-food", (req, res) => {
+
+  })
+  app.post("/interest-in-food", (req, res) => {
+
+  })
+  app.post("/set-text-nbr", (req, res) => {
+
   })
 }
