@@ -22,7 +22,7 @@ var CardSchema = new mongoose.Schema({
 	phone: String,							// Phone number of contact
 	location: String,						// Location of seller
 	rating: Number,							// Current rating of item sold
-	tags: String							// Searchable tags of item
+	tags: String,							// Searchable tags of item
 	description: String, 					// Text description of item
 	//picutre: String, 						// Picture of the item being sold
 })
