@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, FormControl, Col, Checkbox, Button, ControlLabel } from 'react-bootstrap';
+import { post } from '../../../comm/comm'
 
 //Going to be used with routes so it must be exported as a class
 export default class Main extends React.Component {
