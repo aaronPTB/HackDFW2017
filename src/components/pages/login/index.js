@@ -6,6 +6,15 @@ export default class Main extends React.Component {
   constructor() {
     super();
   }
+
+  requestLogin() {
+    
+  }
+
+  requestRegister() {
+
+  }
+
   render() {
     return (
       <div className="page login">
@@ -33,6 +42,9 @@ export default class Main extends React.Component {
               <Col smOffset={2} sm={10}>
                 <Button type="submit">
                   Sign in
+                </Button>               
+                <Button type="submit">
+                  Register
                 </Button>
               </Col>
             </FormGroup>
