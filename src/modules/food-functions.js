@@ -16,10 +16,20 @@ var possible_characters =[ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 0 ,'a','b','c',
 						'D','E','F','G','H','I','J','K','L','M','N','O','P',
 						'Q','R','S','T','U','V','W','X','Y','Z']
 
-function submit_new_food(username, item, callback) {
-	User.findOne({username: username}, (err, response) => {
+function submit_new_food(item, cost, user, phone, location, rating, tags, description, callback) {
+	User.findOne({username: user}, (err, response) => {
 		if (response != null) {
-			(new Card({item: item, username: username})).save();
+			let card = new Card({
+				item: item,
+				cost: cost,
+				user: user,
+				phone: phone,
+				location: location,
+				rating: rating,
+				tags: tags,
+				description: description
+			});
+			card.save();
 			callback({status: "success"});
 		}
 		else {
@@ -28,12 +38,20 @@ function submit_new_food(username, item, callback) {
 	})
 }
 
-// TODO: return a list of food matching item request.
+// Return a list of food matching item request.
 function get_food_list(username, item, callback) {
-	User.findOne({username: username}, (err, response) => {
+	User.findMany({username: username}, (err, response) => {
 		if (response != null) {
-			// TODO: add foodlist shit here
-			callback({status: "success"});
+			Card.findMany({
+				item: item,
+				user: username
+			}, (err, foods)).sort({$natural:-1})
+			if (foods != null) {
+				callback({status: "success", food_list: foods});
+			}
+			else {
+				callback({status: "failure"})
+			}
 		}
 		else {
 			callback({status: "failure"});
