@@ -7,7 +7,7 @@ import { user_json } from './reference/samples.js'
 
 export default function(app) {
   app.get('/login', (req, res) =>
-  {console.log("ddd"); req.user ? res.redirect("/") : sendReactContext(req,  res)});
+  req.user ? res.redirect("/") : sendReactContext(req,  res));
   
   app.get('*', (req, res) =>
 	req.user ? sendReactContext(req,  res) : res.redirect("/login"));
@@ -30,7 +30,7 @@ export default function(app) {
   })
 
   app.post("/add-user", (req, res) => {
-    if (req.user && req.user.admin && req.body.username) {
+    if (req.user && req.body.username) {
       request_make_user(req.body.username, output => res.send(output))
     }
   })
