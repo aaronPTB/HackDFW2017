@@ -102,7 +102,7 @@ function get_food_list(username, item, callback) {
 function delete_food(username, item, callback) {
 	User.findOne({username: username}, (err, response) => {
 		if (response != null) {
-
+			(Food.findOne({item: item, username: username})).remove();
 		}
 		else {
 			callback({status: "failure"});
