@@ -52,21 +52,31 @@ export default function(app) {
   app.post('/api/update', (req, res) => {
 
   })
-  app.post("/card/submit-new-food", (req, res) => {
 
+  app.post("/card/submit-new-food", (req, res) => {
+    if (req.body.item && req.body.cost && req.user && req.body.phone && req.body.location 
+      && req.body.tags && req.body.description) {
+      submit_new_food(req.body.item, req.body.cost, req.user, req.body.phone,
+        req.body.location, 5, req.body.tags, req.body.description, output => res.send(output))
+    }
   })
+
   app.post("/card/get-food-list", (req, res) => {
 
   })
+
   app.post("/card/delete-food", (req, res) => {
 
   })  
+
   app.post("/card/update-food", (req, res) => {
 
   })
+
   app.post("/card/interest-in-food", (req, res) => {
 
   })
+
   app.post("/card/set-text-nbr", (req, res) => {
 
   })
