@@ -1,4 +1,6 @@
 import React from 'react';
+import Topbar from './fixed/topbar'
+import Home from './pages/home/index'
 
 
 //Going to be used with routes so it must be exported as a class
