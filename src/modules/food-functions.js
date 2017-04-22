@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
-import { UserSchema, FoodSchema} from './reference/schemas';
+import { UserSchema, CardSchema} from './reference/schemas';
 
 //Creating database connections
 var Users     = mongoose.createConnection("mongodb://localhost/users");
-var Foods	  = mongoose.createConnection("mongodb://localhost/foods");
+var Cards	  = mongoose.createConnection("mongodb://localhost/foods");
 
 //Turning schemas into models
 var User     = Users.model('User', UserSchema);
-var Food	 = Foods.model('Food', FoodSchema);
+var Card	 = Cards.model('Food', CardSchema);
 
 //--Code relating to user creation below here--//
 var possible_characters =[ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 0 ,'a','b','c',
@@ -78,7 +78,7 @@ var possible_characters =[ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 0 ,'a','b','c',
 function submit_new_food(username, item, callback) {
 	User.findOne({username: username}, (err, response) => {
 		if (response != null) {
-			(new Food({item: item, username: username})).save();
+			(new Card({item: item, username: username})).save();
 			callback({status: "success"});
 		}
 		else {
@@ -87,11 +87,12 @@ function submit_new_food(username, item, callback) {
 	})
 }
 
-// Return a list of items matching the query near the user
+// TODO: return a list of food matching item request.
 function get_food_list(username, item, callback) {
 	User.findOne({username: username}, (err, response) => {
 		if (response != null) {
 			// TODO: add foodlist shit here
+			callback({status: "success"});
 		}
 		else {
 			callback({status: "failure"});
@@ -99,10 +100,12 @@ function get_food_list(username, item, callback) {
 	});
 }
 
+// Delete a food given the username and food posted by a user
 function delete_food(username, item, callback) {
-	User.findOne({username: username}, (err, response) => {
+	Card.findOne({item: item, username: username}, (err, response) => {
 		if (response != null) {
-			(Food.findOne({item: item, username: username})).remove();
+			response.remove();
+			callback({status: "success"});
 		}
 		else {
 			callback({status: "failure"});
@@ -110,21 +113,12 @@ function delete_food(username, item, callback) {
 	});
 }
 
+// Update the description, cost, etc. of a food item
 function update_food(username, item, callback) {
-	User.findOne({username: username}, (err, response) => {
+	Card.findOne({item: item, username: username}, (err, response) => {
 		if (response != null) {
-
-		}
-		else {
-			callback({status: "failure"});
-		}
-	});
-}
-
-function delete_food(username, item, callback) {
-	User.findOne({username: username}, (err, response) => {
-		if (response != null) {
-
+			// TODO: update properties of a food item
+			callback({status: "success"});
 		}
 		else {
 			callback({status: "failure"});
@@ -144,4 +138,4 @@ function interest_in_food(username, item, callback) {
 }
 
 
-export {submit_new_food, get_food_list, delete_food, update_food, delete};
+export {submit_new_food, get_food_list, delete_food, update_food};
